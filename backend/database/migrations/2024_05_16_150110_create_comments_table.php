@@ -24,6 +24,10 @@ return new class extends Migration
             $table->integer('star');
             $table->timestamps();
         });
+        // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
+        Schema::table('Comments', function (Blueprint $table) {
+            DB::statement('ALTER TABLE Comments MODIFY image LONGBLOB');
+        });
     }
 
     /**

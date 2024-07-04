@@ -25,6 +25,10 @@ return new class extends Migration
             $table->binary('image')->nullable();
             $table->timestamps();
         });
+        // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
+        Schema::table('Orderproducts', function (Blueprint $table) {
+            DB::statement('ALTER TABLE Orderproducts MODIFY image LONGBLOB');
+        });
     }
 
     /**

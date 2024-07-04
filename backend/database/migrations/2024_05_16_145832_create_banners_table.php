@@ -21,6 +21,10 @@ return new class extends Migration
             $table->binary('image'); // Laravel không có kiểu BLOB 'long', sử dụng binary thay thế
             $table->timestamps(); // Tự động tạo các cột createdAt và updatedAt
         });
+        // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
+        Schema::table('Banners', function (Blueprint $table) {
+            DB::statement('ALTER TABLE Banners MODIFY image LONGBLOB');
+        });
     }
 
     /**

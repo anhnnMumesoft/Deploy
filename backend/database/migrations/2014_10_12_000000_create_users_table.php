@@ -32,6 +32,10 @@ return new class extends Migration
 
             $table->timestamps();
         });
+        // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
+        Schema::table('users', function (Blueprint $table) {
+            DB::statement('ALTER TABLE users MODIFY image LONGBLOB');
+        });
     }
 
     /**

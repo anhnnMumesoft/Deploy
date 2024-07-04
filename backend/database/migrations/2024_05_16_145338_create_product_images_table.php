@@ -17,8 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('caption')->nullable();
             $table->unsignedBigInteger('product_detail_id');
-            $table->mediumBlob('image');
+            $table->binary('image'); // Tạo cột image với kiểu binary ban đầu
             $table->timestamps();
+        });
+
+        // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
+        Schema::table('Productimages', function (Blueprint $table) {
+            DB::statement('ALTER TABLE Productimages MODIFY image LONGBLOB');
         });
     }
 
