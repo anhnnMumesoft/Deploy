@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('Voucheruseds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('voucherId')->constrained('vouchers')->onDelete('cascade'); // Corrected table name
-            $table->foreignId('userId')->constrained('users')->onDelete('cascade');
+            $table->foreignId('voucherId')->nullable(); // Corrected table name
+            $table->foreignId('userId')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('voucheruseds');
+        Schema::dropIfExists('Voucheruseds');
     }
 };
