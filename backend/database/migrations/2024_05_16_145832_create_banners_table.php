@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Banners', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->text('description')->nullable();
             $table->string('name');
@@ -22,8 +22,8 @@ return new class extends Migration
             $table->timestamps(); // Tự động tạo các cột createdAt và updatedAt
         });
         // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
-        Schema::table('Banners', function (Blueprint $table) {
-            DB::statement('ALTER TABLE Banners MODIFY image LONGBLOB');
+        Schema::table('banners', function (Blueprint $table) {
+            DB::statement('ALTER TABLE banners MODIFY image LONGBLOB');
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Banners');
+        Schema::dropIfExists('banners');
     }
 };

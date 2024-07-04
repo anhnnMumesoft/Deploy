@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Voucheruseds', function (Blueprint $table) {
+        Schema::create('voucheruseds', function (Blueprint $table) {
             $table->id();
             $table->foreignId('voucherId')->nullable(); // Corrected table name
             $table->foreignId('userId')->nullable();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Voucheruseds');
+        Schema::dropIfExists('voucheruseds');
     }
 };

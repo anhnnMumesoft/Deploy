@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Typevouchers', function (Blueprint $table) {
+        Schema::create('typevouchers', function (Blueprint $table) {
             $table->id();
             $table->string('typeVoucher');
             $table->bigInteger('value');
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Typevouchers');
+        Schema::dropIfExists('typevouchers');
     }
 };

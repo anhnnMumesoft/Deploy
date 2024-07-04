@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Comments', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('content')->nullable();
             $table->binary('image')->nullable();
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->timestamps();
         });
         // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
-        Schema::table('Comments', function (Blueprint $table) {
-            DB::statement('ALTER TABLE Comments MODIFY image LONGBLOB');
+        Schema::table('comments', function (Blueprint $table) {
+            DB::statement('ALTER TABLE comments MODIFY image LONGBLOB');
         });
     }
 
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Comments');
+        Schema::dropIfExists('comments');
     }
 };

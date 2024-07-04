@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Productimages', function (Blueprint $table) {
+        Schema::create('productimages', function (Blueprint $table) {
             $table->id();
             $table->string('caption')->nullable();
             $table->unsignedBigInteger('product_detail_id');
@@ -22,8 +22,8 @@ return new class extends Migration
         });
 
         // Sử dụng câu lệnh thô để thay đổi kiểu dữ liệu của cột image thành LONGBLOB
-        Schema::table('Productimages', function (Blueprint $table) {
-            DB::statement('ALTER TABLE Productimages MODIFY image LONGBLOB');
+        Schema::table('productimages', function (Blueprint $table) {
+            DB::statement('ALTER TABLE productimages MODIFY image LONGBLOB');
         });
     }
 
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Productimages');
+        Schema::dropIfExists('productimages');
     }
 };

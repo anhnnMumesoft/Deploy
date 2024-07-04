@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Shopcarts', function (Blueprint $table) {
+        Schema::create('shopcarts', function (Blueprint $table) {
             $table->id();
             $table->integer('userId')->nullable();
             $table->integer('productdetailsizeId')->nullable();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Shopcarts');
+        Schema::dropIfExists('shopcarts');
     }
 };

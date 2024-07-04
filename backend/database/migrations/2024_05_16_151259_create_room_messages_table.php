@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('RoomMessages', function (Blueprint $table) {
+        Schema::create('roomMessages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_one');
             $table->unsignedBigInteger('user_two');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('RoomMessages');
+        Schema::dropIfExists('roomMessages');
     }
 };
