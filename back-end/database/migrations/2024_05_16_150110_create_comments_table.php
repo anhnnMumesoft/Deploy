@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Comments', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->text('content')->nullable();
             $table->binary('image', ['length' => 4294967295])->nullable();
@@ -24,6 +24,10 @@ return new class extends Migration
             $table->integer('star');
             $table->timestamps();
             $table->softDeletes();
+        });
+        Schema::table('comments', function (Blueprint $table) {
+            $table->dropColumn('image');
+            DB::statement('ALTER TABLE comments ADD image LONGBLOB');
         });
     }
 

@@ -21,6 +21,10 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+        Schema::table('productimages', function (Blueprint $table) {
+            $table->dropColumn('image');
+            DB::statement('ALTER TABLE productimages ADD image LONGBLOB');
+        });
     }
 
     /**
