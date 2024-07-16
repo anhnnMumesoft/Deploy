@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('genderId')->nullable();
             $table->string('phonenumber')->nullable();
-            $table->longBlob('image')->nullable();
+            $table->binary('image', ['length' => 4294967295])->nullable();
             $table->string('dob')->nullable();
             $table->string('roleId')->nullable();
             $table->string('statusId')->nullable();
