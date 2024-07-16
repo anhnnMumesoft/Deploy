@@ -21,10 +21,8 @@ return new class extends Migration
             $table->timestamps(); // Tự động tạo các cột createdAt và updatedAt
             $table->softDeletes();
         });
-                    Schema::table('banners', function (Blueprint $table) {
-                        $table->dropColumn('image');
-                        DB::statement('ALTER TABLE banners ADD image LONGBLOB');
-                    });
+                    // Use raw SQL to add the longblob column
+        DB::statement('ALTER TABLE banners ADD image LONGBLOB');
     }
 
     /**
