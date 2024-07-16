@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('name');
             $table->string('statusId');
-            $table->binary('image'); // Laravel không có kiểu BLOB 'long', sử dụng binary thay thế
             $table->timestamps(); // Tự động tạo các cột createdAt và updatedAt
             $table->softDeletes();
         });

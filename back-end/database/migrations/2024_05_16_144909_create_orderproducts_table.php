@@ -22,9 +22,12 @@ return new class extends Migration
             $table->foreignId('voucher_id')->nullable();
             $table->string('note')->nullable();
             $table->integer('is_payment_online')->default(0);
-            $table->binary('image', ['length' => 4294967295])->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+        Schema::table('orderproducts', function (Blueprint $table) {
+            $table->dropColumn('image');
+            DB::statement('ALTER TABLE orderproducts ADD image LONGBLOB');
         });
     }
 
