@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('Comments', function (Blueprint $table) {
             $table->id();
             $table->text('content')->nullable();
-            $table->binary('image')->nullable();
+            $table->binary('image', ['length' => 4294967295])->nullable();
             $table->unsignedBigInteger('parentId')->nullable();
             $table->unsignedBigInteger('productId')->nullable();
             $table->unsignedBigInteger('userId')->nullable();

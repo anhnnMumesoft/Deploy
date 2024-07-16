@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('subjectId');
             $table->string('statusId');
-            $table->binary('image');
+            $table->binary('image', ['length' => 4294967295])->nullable();
             $table->longText('contentMarkdown');
             $table->longText('contentHTML');
             $table->unsignedBigInteger('userId');

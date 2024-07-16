@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('caption')->nullable();
             $table->unsignedBigInteger('product_detail_id');
-            $table->mediumBlob('image');
+            $table->binary('image', ['length' => 4294967295])->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
