@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ProductDetailSizes', function (Blueprint $table) {
+        Schema::create('productdetailsizes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('productdetail_id')->nullable();
             $table->string('width');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ProductDetailSizes');
+        Schema::dropIfExists('productdetailsizes');
     }
 };

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Typeships', function (Blueprint $table) {
+        Schema::create('typeships', function (Blueprint $table) {
             $table->id();
             $table->string('type');
             $table->bigInteger('price');
