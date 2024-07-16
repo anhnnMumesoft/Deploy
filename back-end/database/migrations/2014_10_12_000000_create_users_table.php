@@ -32,10 +32,8 @@ return new class extends Migration
             $table->timestamps();
 
         });
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('image');
-            DB::statement('ALTER TABLE users ADD image LONGBLOB');
-        });
+        // Use raw SQL to add the longblob column
+        DB::statement('ALTER TABLE users ADD image LONGBLOB');
     }
 
     /**

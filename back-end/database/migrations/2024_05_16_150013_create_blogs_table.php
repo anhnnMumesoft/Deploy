@@ -27,10 +27,8 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        Schema::table('blogs', function (Blueprint $table) {
-            $table->dropColumn('image');
-            DB::statement('ALTER TABLE blogs ADD image LONGBLOB');
-        });
+         // Use raw SQL to add the longblob column
+         DB::statement('ALTER TABLE blogs ADD image LONGBLOB');
     }
 
     /**
